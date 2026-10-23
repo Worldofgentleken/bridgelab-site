@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>브릿지펫 — 사료 떨어지기 전에 카톡으로 알려드려요</title>
+  <meta name="description" content="반려동물 사료가 떨어지기 1주일 전, 카카오톡으로 알림과 구매 링크를 보내 드리는 서비스 브릿지펫">
+  <meta property="og:title" content="브릿지펫">
+  <meta property="og:description" content="사료 떨어지기 전에 카톡으로 알려드려요">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <style>
+    :root {
+      --bg: #fffaf3;
+      --surface: #ffffff;
+      --text: #2b2118;
+      --muted: #6f6257;
+      --accent: #f2994a;
+      --accent-soft: #fde8d4;
+      --kakao: #fee500;
+      --border: #efe3d6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1b1713;
+        --surface: #26201b;
+        --text: #f5ece3;
+        --muted: #b9aa9b;
+        --accent: #f5a764;
+        --accent-soft: #3a2c20;
+        --border: #3a3029;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+    header { padding: 20px 0; }
+    .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; }
+    .logo span { color: var(--accent); }
+    .hero { padding: 56px 0 40px; }
+    .hero h1 { font-size: clamp(30px, 6vw, 46px); line-height: 1.25; margin: 0 0 16px; letter-spacing: -0.03em; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p { font-size: 18px; color: var(--muted); margin: 0 0 28px; }
+    .badge { display: inline-block; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px; margin-bottom: 16px; }
+    .msg {
+      background: #b2c7da; border-radius: 20px; padding: 20px; max-width: 360px;
+    }
+    .bubble {
+      background: #fff; color: #222; border-radius: 4px 16px 16px 16px; padding: 14px 16px; font-size: 15px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.08);
+    }
+    .bubble b { display: block; margin-bottom: 6px; }
+    .bubble .btn { display: block; margin-top: 12px; text-align: center; background: #f4f4f4; border-radius: 6px; padding: 8px; font-weight: 600; }
+    section { padding: 40px 0; border-top: 1px solid var(--border); }
+    h2 { font-size: 24px; margin: 0 0 20px; letter-spacing: -0.02em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+    .card .n { font-weight: 800; color: var(--accent); font-size: 14px; }
+    .card h3 { margin: 6px 0 8px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    ul.points { padding-left: 20px; margin: 0; }
+    ul.points li { margin-bottom: 8px; }
+    .notice { font-size: 13px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header><div class="logo">브릿지<span>펫</span></div></header>
+
+    <div class="hero">
+      <div class="badge">출시 준비 중</div>
+      <h1>사료 떨어지기 전에<br><em>카톡으로</em> 알려드려요</h1>
+      <p>우리 아이 배식량만 입력하면, 사료가 바닥나기 1주일 전에<br>카카오톡으로 알림과 구매 링크를 보내 드려요.</p>
+      <div class="msg" aria-label="알림 메시지 예시">
+        <div class="bubble">
+          <b>🐾 사료가 곧 떨어져요</b>
+          콩이·보리가 먹는 사료가 약 7일 뒤 소진될 예정이에요. 미리 주문해 두세요!
+          <span class="btn">구매하러 가기</span>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h2>이렇게 사용해요</h2>
+      <div class="grid">
+        <div class="card"><div class="n">1</div><h3>카카오로 3초 가입</h3><p>별도 회원가입 없이 카카오 계정으로 바로 시작해요.</p></div>
+        <div class="card"><div class="n">2</div><h3>반려동물과 사료 등록</h3><p>최대 3마리까지 등록하고, 사료 이름·보유량·1회 배식량·하루 배식 횟수를 입력해요. 같은 사료를 먹는 아이들은 하나로 묶어 계산해요.</p></div>
+        <div class="card"><div class="n">3</div><h3>1주일 전 카톡 알림</h3><p>사료가 떨어지기 7일 전, 카카오톡으로 알림과 함께 구매 링크를 보내 드려요.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>왜 브릿지펫인가요</h2>
+      <ul class="points">
+        <li>사료가 갑자기 떨어져서 급하게 사러 나가는 일이 없어져요.</li>
+        <li>여러 마리를 키워도 사료별로 남은 날짜를 한눈에 볼 수 있어요.</li>
+        <li>새 사료를 사면 보유량만 다시 입력하면 돼요.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="notice">
+        브릿지펫의 구매 링크 일부는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+      </div>
+    </section>
+
+    <footer>
+      © 2026 브릿지펫 · 반려동물 사료 소진 알림 서비스 (출시 준비 중)
+    </footer>
+  </div>
+</body>
+</html>
